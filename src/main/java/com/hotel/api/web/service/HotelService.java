@@ -1,5 +1,6 @@
 package com.hotel.api.web.service;
 
+import com.hotel.api.web.model.Room;
 import com.hotel.api.web.model.SignUpRequest;
 import com.hotel.api.web.model.User;
 import com.hotel.api.web.repository.HotelRepository;
@@ -26,5 +27,13 @@ public class HotelService {
 
     public void insertUser(User user) {
         hotelRepository.addUser(user);
+    }
+
+    public void insertRoom(Room room) {
+        hotelRepository.addRoom(room);
+    }
+
+    public void updateRoom(Room room) {
+        hotelRepository.updateRoom(room);
     }
 }

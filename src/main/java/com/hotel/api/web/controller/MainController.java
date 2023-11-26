@@ -1,15 +1,10 @@
 package com.hotel.api.web.controller;
 
-import com.hotel.api.web.model.ApiResponse;
-import com.hotel.api.web.model.LoginRequest;
-import com.hotel.api.web.model.SignUpRequest;
-import com.hotel.api.web.model.User;
+import com.hotel.api.web.model.*;
 import com.hotel.api.web.service.HotelService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -52,6 +47,28 @@ public class MainController {
         response.setMessage("User added");
         return ResponseEntity.ok().body(response);
     }
+
+    @PostMapping("/addRoom")
+    public ResponseEntity<ApiResponse<Object>> addRoom(@RequestBody Room room) {
+        ApiResponse<Object> response = new ApiResponse<>();
+        hotelService.insertRoom(room);
+        response.setSuccess(true);
+        response.setMessage("Room added");
+        return ResponseEntity.ok().body(response);
+    }
+
+    @PutMapping("/updateRoom")
+    public ResponseEntity<ApiResponse<Object>> updateRoom(@RequestBody Room room) {
+        ApiResponse<Object> response = new ApiResponse<>();
+        hotelService.updateRoom(room);
+        response.setSuccess(true);
+        response.setMessage("Room updated");
+        return ResponseEntity.ok().body(response);
+    }
+
+
+
+
 
 
 

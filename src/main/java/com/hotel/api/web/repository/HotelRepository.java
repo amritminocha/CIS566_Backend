@@ -1,5 +1,6 @@
 package com.hotel.api.web.repository;
 
+import com.hotel.api.web.model.Room;
 import com.hotel.api.web.model.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,5 +34,15 @@ public class HotelRepository {
     public void addUser(User user) {
         String sql = "INSERT INTO user (email, password, name, type) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getName(), user.getType());
+    }
+
+    public void addRoom(Room room) {
+        String sql = "INSERT INTO room (room_type, room_name, detail, amenities, price) VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, room.getRoomType(), room.getRoomName(), room.getDetail(), room.getAmenities(), room.getPrice());
+    }
+
+    public void updateRoom(Room room) {
+        String sql = "UPDATE rooms SET room_type=?, room_name=?, detail=?, amenities=?, price=? WHERE room_id=?";
+        jdbcTemplate.update(sql, room.getRoomType(), room.getRoomName(), room.getDetail(), room.getAmenities(), room.getPrice());
     }
 }
