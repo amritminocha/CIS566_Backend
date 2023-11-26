@@ -1,5 +1,6 @@
 package com.hotel.api.web.service;
 
+import com.hotel.api.web.model.SignUpRequest;
 import com.hotel.api.web.model.User;
 import com.hotel.api.web.repository.HotelRepository;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,13 @@ public class HotelService {
 
     public List<User> getUsers() {
         return hotelRepository.findAll();
+    }
+
+    public User getUser(String email, String password) {
+        return hotelRepository.findUser(email, password);
+    }
+
+    public void insertUser(User user) {
+        hotelRepository.addUser(user);
     }
 }
