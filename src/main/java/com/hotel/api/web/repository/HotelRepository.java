@@ -42,7 +42,7 @@ public class HotelRepository {
     }
 
     public void updateRoom(Room room) {
-        String sql = "UPDATE rooms SET room_type=?, room_name=?, detail=?, amenities=?, price=? WHERE room_id=?";
-        jdbcTemplate.update(sql, room.getRoomType(), room.getRoomName(), room.getDetail(), room.getAmenities(), room.getPrice());
+        String sql = "UPDATE room SET room_type=?, room_name=?, detail=?, amenities=?, price=? WHERE room_id=?";
+        jdbcTemplate.update(sql, room.getRoomType(), room.getRoomName(), room.getDetail(), room.getAmenities(), room.getPrice(), room.getRoomId());
     }
 }
