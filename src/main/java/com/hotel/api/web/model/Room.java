@@ -7,6 +7,18 @@ public class Room {
     public String amenities;
     public double price;
 
+    //    public int roomId;
+//
+//    public int getRoomId() {
+//        return roomId;
+//    }
+//
+//    public void setRoomId(int roomId) {
+//        this.roomId = roomId;
+//    }
+
+
+
     public String getRoomType() {
         return roomType;
     }
