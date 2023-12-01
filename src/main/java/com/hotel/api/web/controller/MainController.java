@@ -2,9 +2,11 @@ package com.hotel.api.web.controller;
 
 import com.hotel.api.web.model.*;
 import com.hotel.api.web.service.HotelService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,6 +65,17 @@ public class MainController {
         hotelService.updateRoom(room);
         response.setSuccess(true);
         response.setMessage("Room updated");
+        return ResponseEntity.ok().body(response);
+    }
+
+    @PostMapping("/availableRooms")
+    public ResponseEntity<ApiResponse<Object>> getAvailableRooms(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+                                                                 @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+        ApiResponse<Object> response = new ApiResponse<>();
+        List<Room> availableRooms = hotelService.getAvailableRooms(startDate, endDate);
+        response.setSuccess(true);
+        response.setMessage("The list of rooms available");
+        response.setData(availableRooms);
         return ResponseEntity.ok().body(response);
     }
 

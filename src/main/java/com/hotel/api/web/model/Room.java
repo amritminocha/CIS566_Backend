@@ -63,4 +63,7 @@ public class Room {
         this.amenities = amenities;
         this.price = price;
     }
+
+    public Room() {
+    }
 }

@@ -1,11 +1,11 @@
 package com.hotel.api.web.service;
 
 import com.hotel.api.web.model.Room;
-import com.hotel.api.web.model.SignUpRequest;
 import com.hotel.api.web.model.User;
 import com.hotel.api.web.repository.HotelRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,5 +35,9 @@ public class HotelService {
 
     public void updateRoom(Room room) {
         hotelRepository.updateRoom(room);
+    }
+
+    public List<Room> getAvailableRooms(Date startDate, Date endDate) {
+        return hotelRepository.findAvailableRooms(startDate, endDate);
     }
 }
