@@ -21,7 +21,7 @@ public class BookingController {
         ApiResponse<Object> response = new ApiResponse<>();
         bookingService.bookRoom(booking);
         response.setSuccess(true);
-        response.setMessage("Room added");
+        response.setMessage("Booking added");
         return ResponseEntity.ok().body(response);
     }
 

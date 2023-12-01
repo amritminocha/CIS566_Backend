@@ -67,17 +67,6 @@ public class MainController {
     }
 
 
-//    @GetMapping("/getBookings")
-//    public List<Bookings> getBookings() {
-//        return hotelService.getUsers();
-//    }
-
-    //1 Add booking
-    //2 update
-    //3 find booking by email id
-    //4 view all bookings
-    //5 view all rooms
-
 
 
 
