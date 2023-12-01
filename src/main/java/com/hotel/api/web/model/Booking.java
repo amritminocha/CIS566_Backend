@@ -1,47 +1,48 @@
 package com.hotel.api.web.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 public class Booking {
 
-
-    private long bookingId;
-    private String roomId;
-    private String name;
+    private int bookingId;
+    private int roomId;
     private String email;
-    private String roomType;
-    private long startDate;
-    private long endDate;
-    private int price;
+    private String name;
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date startDate;
+    @JsonFormat(shape= JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
+    private Date endDate;
     private String status;
 
     public Booking() {
     }
 
-    public Booking(String roomId, String name, String email, String roomType, long startDate, long endDate, int price,
+    public Booking(int bookingId, int roomId, String name, String email, Date startDate, Date endDate,
                    String status) {
-        super();
+        this.bookingId = bookingId;
         this.roomId = roomId;
-        this.name = name;
         this.email = email;
-        this.roomType = roomType;
+        this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.price = price;
         this.status = status;
     }
 
 
-    public long getBookingId() {
+    public int getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(long bookingId) {
+    public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
     }
 
-    public String getRoomId() {
+    public int getRoomId() {
         return roomId;
     }
-    public void setRoomId(String roomId) {
+    public void setRoomId(int roomId) {
         this.roomId = roomId;
     }
     public String getName() {
@@ -56,29 +57,17 @@ public class Booking {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getRoomType() {
-        return roomType;
-    }
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
-    }
-    public long getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
-    public void setStartDate(long startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
-    public long getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
-    public void setEndDate(long endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-    public int getPrice() {
-        return price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
     }
     public String getStatus() {
         return status;

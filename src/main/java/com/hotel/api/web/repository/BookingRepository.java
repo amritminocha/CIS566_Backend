@@ -25,10 +25,10 @@ public class BookingRepository {
     }
 
     public void saveBooking(Booking booking) {
-        String sql = "INSERT INTO bookings ( room_id, name, email, room_type, start_date, end_date, price, status) " +
-                "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, booking.getRoomId(), booking.getName(), booking.getEmail(),
-                booking.getRoomType(), booking.getStartDate(), booking.getEndDate(), booking.getPrice(), booking.getStatus());
+        String sql = "INSERT INTO bookings ( room_id, email, name, start_date, end_date, status) " +
+                "VALUES ( ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, booking.getRoomId(), booking.getEmail(), booking.getName(),
+                booking.getStartDate(), booking.getEndDate(), booking.getStatus());
     }
 
     public void updateBookingStatus(String bookingId, String status) {
