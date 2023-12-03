@@ -9,9 +9,13 @@ public interface BookingService {
 
     List<Booking> getAllBookings();
 
+    List<Booking> getBookingsByEmail(String email);
+
     Booking getBookingById(String bookingId);
 
     Booking bookRoom(Booking booking);
+
+
 
     void updateBookingStatus(String bookingId, String status);
 
