@@ -92,7 +92,7 @@ public class HotelRepository {
                 "WHERE room.room_id NOT IN(\n" +
                 "    SELECT bookings.room_id\n" +
                 "    FROM bookings\n" +
-                "    WHERE ? < bookings.start_date\n" +
+                "    WHERE ? <= bookings.start_date\n" +
                 "    AND ? >= bookings.end_date\n" +
                 "    AND bookings.status = \"BOOKED\"\n" +
                 ");";

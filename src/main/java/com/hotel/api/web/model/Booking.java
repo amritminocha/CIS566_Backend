@@ -2,7 +2,7 @@ package com.hotel.api.web.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Booking {
 
@@ -10,16 +10,17 @@ public class Booking {
     private int roomId;
     private String email;
     private String name;
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date startDate;
-    @JsonFormat(shape= JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
-    private Date endDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
     private String status;
 
     public Booking() {
     }
 
-    public Booking(int bookingId, int roomId, String name, String email, Date startDate, Date endDate,
+    public Booking(int bookingId, int roomId, String name, String email, LocalDate startDate, LocalDate endDate,
                    String status) {
         this.bookingId = bookingId;
         this.roomId = roomId;
@@ -57,16 +58,16 @@ public class Booking {
     public void setEmail(String email) {
         this.email = email;
     }
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
     public String getStatus() {

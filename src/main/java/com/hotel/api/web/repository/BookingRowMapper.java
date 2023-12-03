@@ -15,8 +15,8 @@ public class BookingRowMapper implements RowMapper<Booking> {
         booking.setRoomId(rs.getInt("room_id"));
         booking.setName(rs.getString("name"));
         booking.setEmail(rs.getString("email"));
-        booking.setStartDate(rs.getTimestamp("start_date"));
-        booking.setEndDate(rs.getTimestamp("end_date"));
+        booking.setStartDate(rs.getDate("start_date").toLocalDate());
+        booking.setEndDate(rs.getDate("end_date").toLocalDate());
         booking.setStatus(rs.getString("status"));
         return booking;
     }
