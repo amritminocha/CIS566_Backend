@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hotel.api.web.model.AmenityDecorator;
 import com.hotel.api.web.model.Room;
@@ -41,7 +42,7 @@ public class HotelRepository {
         String sql = "INSERT INTO user (email, password, name, type) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, user.getEmail(), user.getPassword(), user.getName(), user.getType());
     }
-
+    @Transactional
     public void addRoom(Room room) {
         String sql = "INSERT INTO room (room_type, room_name, detail, price) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, room.getRoomType(), room.getRoomName(), room.getDetail(), room.getPrice());
