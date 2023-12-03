@@ -19,6 +19,11 @@ public class BookingRepository {
         return jdbcTemplate.query(sql, new BookingRowMapper());
     }
 
+    public List<Booking> findBookingsByEmail(String email) {
+        String sql = "SELECT * FROM bookings WHERE email = ?";
+        return jdbcTemplate.query(sql, new Object[]{email}, new BookingRowMapper());
+    }
+
     public Booking findBookingById(String bookingId) {
         String sql = "SELECT * FROM bookings WHERE booking_id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{bookingId}, new BookingRowMapper());

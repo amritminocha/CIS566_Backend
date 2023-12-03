@@ -18,6 +18,10 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepository.findAllBookings();
     }
 
+    public List<Booking> getBookingsByEmail(String email) {
+        return bookingRepository.findBookingsByEmail(email);
+    }
+
     public Booking getBookingById(String bookingId) {
         return bookingRepository.findBookingById(bookingId);
     }

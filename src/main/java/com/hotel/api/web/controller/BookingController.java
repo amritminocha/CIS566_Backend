@@ -8,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/bookings")
+@CrossOrigin(origins = "*")
 public class BookingController {
 
     @Autowired
@@ -26,10 +28,14 @@ public class BookingController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Booking>> getAllBookings() {
-        List<Booking> bookings = bookingService.getAllBookings();
+    public ResponseEntity<List<Booking>> getAllBookings(@RequestParam(required = false) String email) {
+        List<Booking> bookings;
+        if (Objects.nonNull(email)) {
+            bookings = bookingService.getBookingsByEmail(email);
+        } else {
+            bookings = bookingService.getAllBookings();
+        }
         return ResponseEntity.ok(bookings);
-
     }
 
     @GetMapping("/{bookingId}")

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class MainController {
 
     private final HotelService hotelService;
